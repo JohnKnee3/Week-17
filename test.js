@@ -1,24 +1,26 @@
-const chiller = (state) => ({
-  chill: () => console.log(`Ooh, I'm at ${state.temp} degrees`),
-});
+// const buttonEl = document.getElementById("my-button");
+const buttons = document.getElementsByTagName("button");
 
-const caller = (state) => ({
-  call: () => console.log(`I am calling ${state.number}`),
-});
+const clickHandler = function () {
+  let count = 0;
 
-const browserInternet = (state) => ({
-  browse: () => state.url,
-});
-
-const chillinator = (temp) => {
-  let state = {
-    temp,
-    number: 311,
-    url: "google.com",
+  return function () {
+    count++;
+    this.textContent = `Clicks: ${count}`;
   };
-  return { ...chiller(state), ...caller(state), ...browserInternet(state) };
 };
 
-chillinator(20).chill();
-chillinator(20).call();
-chillinator(20).browse();
+// buttonEl.addEventListener("click", clickHandler());
+for (let i = 0; i < buttons.length; i++) {
+  buttons[i].addEventListener("click", clickHandler());
+}
+
+// const containerEl = document.getElementById("container");
+
+// const clickHandler = function (event) {
+//   if (event.target.matches("button")) {
+//     event.target.textContent = "Clicked!";
+//   }
+// };
+
+// containerEl.addEventListener("click", clickHandler);

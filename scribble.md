@@ -79,3 +79,24 @@ return { ...chiller(state), ...caller(state), ...browserInternet(state) }
 }
 
 We also tacked this on to the code and added in the call chillinator(20).chill(); to show the temp of 20 that we pass in or chillinator(20).call(); to refernce the 311 we added to the object.
+
+# 17.2.4
+
+Some crazy things you can do with Closures.
+
+const buttons = document.getElementsByTagName("button");
+
+const clickHandler = function () {
+let count = 0;
+
+return function () {
+count++;
+this.textContent = `Clicks: ${count}`;
+};
+};
+
+for (let i = 0; i < buttons.length; i++) {
+buttons[i].addEventListener("click", clickHandler());
+}
+
+This lets you create an unliited amount of buttons that all get referenced in a for loop. This was fiarly confusing and I may need to reread or ask in class to ry and fully understand.
