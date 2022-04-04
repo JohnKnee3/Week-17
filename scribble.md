@@ -10,3 +10,7 @@ Also met three new terms beyond "push" which I already knew added to the end of 
 "Pop" removes from the end of an array.
 "Unshift" adds to the start of an array.
 "Shift" removes from the end of the array.
+
+# 17.1.3
+
+Followed step by step how function calls work. How they get added to the top of the stack, then get resolved and popped off to resolve what is below it.
