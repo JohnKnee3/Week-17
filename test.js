@@ -1,10 +1,13 @@
-function foo() {
-  setTimeout(() => {
-    console.log("bar");
-  }, 0);
+count = 5;
 
-  console.log("foo");
-  console.log("baz");
+function counter() {
+  let count = 0;
+  return function () {
+    return count++;
+  };
 }
 
-foo();
+const increment = counter();
+console.log(increment()); //=> 0
+console.log(increment());
+console.log(increment());
