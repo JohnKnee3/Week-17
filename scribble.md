@@ -14,3 +14,7 @@ Also met three new terms beyond "push" which I already knew added to the end of 
 # 17.1.3
 
 Followed step by step how function calls work. How they get added to the top of the stack, then get resolved and popped off to resolve what is below it.
+
+# 17.1.4
+
+Learned about async functions using settimeout as my async model. The biggest thing I learned is that the event loop will not allow any aync functions in until all sync lines have finished. Even if the async function was set to a zero second timeout it still had to wait for every other synch lin of code to fire off first.

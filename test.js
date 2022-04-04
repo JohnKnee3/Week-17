@@ -1,14 +1,10 @@
-function answer() {
-  console.log("Hello world");
-  function response() {
-    console.log("Are you listening?");
-    console.trace();
-    return;
-  }
+function foo() {
+  setTimeout(() => {
+    console.log("bar");
+  }, 0);
 
-  console.log("I like bananas");
-  response();
+  console.log("foo");
+  console.log("baz");
 }
 
-console.log("Good Morning");
-answer();
+foo();
