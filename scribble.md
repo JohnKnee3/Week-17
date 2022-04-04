@@ -34,3 +34,48 @@ const increment = counter();
 increment(); //=> 0
 
 Which makes is so when we call the variable increment as a function it goes in and grabs the next highest number. These are called closures which are triggered by the return statment in front of the unamed function.
+
+# 17.2.3
+
+We mat factory function as opposed to OOP.
+
+const tiger = function() {
+const noise = 'roar';
+return {
+sound: function() {
+console.log(noise);
+},
+}
+}
+
+const tigger = tiger();
+tigger.sound(); //=> "roar"
+
+This is an example of a factory function. For the most part they look like plain old javascript. One of the big takeaways is that it eleminates the use of the word .this which can cause problems. We also made this factory fuanction.
+
+const chiller = (state) => ({
+chill: () => console.log(`Ooh, I'm at ${state.temp} degrees`)
+})
+
+const caller = (state) => ({
+call: () => console.log(`I am calling ${state.number}`)
+})
+
+const browserInternet = (state) => ({
+browse: () => state.url
+})
+
+caller({number: '411'}).call() //=> I am calling 411
+
+This was fairly dense but lets you touch the boject within the function and pass in the information needed to display the related console log.
+
+const chillinator = (temp) => {
+let state = {
+temp,
+number: 311,
+url: 'google.com'
+}
+return { ...chiller(state), ...caller(state), ...browserInternet(state) }
+}
+
+We also tacked this on to the code and added in the call chillinator(20).chill(); to show the temp of 20 that we pass in or chillinator(20).call(); to refernce the 311 we added to the object.
