@@ -100,3 +100,61 @@ buttons[i].addEventListener("click", clickHandler());
 }
 
 This lets you create an unliited amount of buttons that all get referenced in a for loop. This was fiarly confusing and I may need to reread or ask in class to ry and fully understand.
+
+# 17.3.2
+
+Introduced the % (remainder operator) to solve this
+
+const isEven = (num) => {
+if (num % 2 === 0) {
+return true;
+} else {
+return false;
+}
+};
+
+var number = isEven(22);
+console.log(number);
+
+They also showed how a for loop could do it but it would take longer.
+
+const isEven = (num) => {
+let even = true;
+
+for (let i = 0; i < num; i++) {
+even = !even;
+}
+
+return even;
+};
+
+var number = isEven(22);
+console.log(number);
+
+# 17.3.3
+
+Introduced rucursion where they gave us an array and used this to find it
+
+const data = [12, 23, 38, 40, 54, 62, 71, 87, 99];
+
+const binarySearch = (arr, num, left, right) => {
+let middle = Math.floor((left + right) / 2);
+
+// range overlapped, so never found number
+if (left > right) {
+return -1;
+} else if (num === arr[middle]) {
+return middle;
+} else if (num < arr[middle]) {
+// call again with a new right value
+return binarySearch(arr, num, left, middle - 1);
+} else {
+// call again with a new left value
+return binarySearch(arr, num, middle + 1, right);
+}
+};
+
+// set initial left and right values on first call
+console.log(binarySearch(data, 38, 0, data.length - 1));
+
+The gist is that it takes 0+8/2=4 for middle which is the reference for the array spot and checks that against the number. If the number matches the array spot we are done. If it is less than then we minus 1 from the array spot and run it again which in this case we do changing middle to 3. It this gets the 0+3/2=1 and checks again. This time the number we passed in is greater than the array spot so we change left to 1 and send right back in as 3 that it came in as boefre middle ruined it. Then we get 3+1/2=2 and this array spot will match our number. I was unable to figure this out on my own and it took me a while to even figure out what was going on here once the answer was revealed.

@@ -1,26 +1,21 @@
-// const buttonEl = document.getElementById("my-button");
-const buttons = document.getElementsByTagName("button");
+const data = [12, 23, 38, 40, 54, 62, 71, 87, 99];
 
-const clickHandler = function () {
-  let count = 0;
+const binarySearch = (arr, num, left, right) => {
+  let middle = Math.floor((left + right) / 2);
 
-  return function () {
-    count++;
-    this.textContent = `Clicks: ${count}`;
-  };
+  // range overlapped, so never found number
+  if (left > right) {
+    return -1;
+  } else if (num === arr[middle]) {
+    return middle;
+  } else if (num < arr[middle]) {
+    // call again with a new right value
+    return binarySearch(arr, num, left, middle - 1);
+  } else {
+    // call again with a new left value
+    return binarySearch(arr, num, middle + 1, right);
+  }
 };
 
-// buttonEl.addEventListener("click", clickHandler());
-for (let i = 0; i < buttons.length; i++) {
-  buttons[i].addEventListener("click", clickHandler());
-}
-
-// const containerEl = document.getElementById("container");
-
-// const clickHandler = function (event) {
-//   if (event.target.matches("button")) {
-//     event.target.textContent = "Clicked!";
-//   }
-// };
-
-// containerEl.addEventListener("click", clickHandler);
+// set initial left and right values on first call
+console.log(binarySearch(data, 38, 0, data.length - 1));
