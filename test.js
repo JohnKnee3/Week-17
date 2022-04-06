@@ -1,27 +1,28 @@
-// const data = [12, 23, 38, 40, 54, 62, 71, 87, 99];
+const numbers = [
+  54, 8, 87, 88, 100, 98, 17, 72, 67, 42, 40, 34, 55, 18, 33, 94, 59, 68, 92, 2,
+];
 
-// const binarySearch = (arr, num, left, right) => {
-//   let middle = Math.floor((left + right) / 2);
+const bubbleSort = (arr) => {
+  let sorted = false;
 
-//   // range overlapped, so never found number
-//   if (left > right) {
-//     return -1;
-//   } else if (num === arr[middle]) {
-//     return middle;
-//   } else if (num < arr[middle]) {
-//     // call again with a new right value
-//     return binarySearch(arr, num, left, middle - 1);
-//   } else {
-//     // call again with a new left value
-//     return binarySearch(arr, num, middle + 1, right);
-//   }
-// };
+  while (!sorted) {
+    sorted = true;
 
-// // set initial left and right values on first call
-// console.log(binarySearch(data, 38, 0, data.length - 1));
+    for (let i = 0; i < arr.length - 1; i++) {
+      // compare current element to next
+      if (arr[i] > arr[i + 1]) {
+        // swap using a third temp variable
+        let temp = arr[i];
+        arr[i] = arr[i + 1];
+        arr[i + 1] = temp;
 
-const loop = (num) => {
-  return loop(num + 1);
+        // flag as not sorted to run loop again
+        sorted = false;
+      }
+    }
+  }
+
+  return arr;
 };
 
-console.log(loop(1));
+console.log(bubbleSort(numbers));
