@@ -158,3 +158,7 @@ return binarySearch(arr, num, middle + 1, right);
 console.log(binarySearch(data, 38, 0, data.length - 1));
 
 The gist is that it takes 0+8/2=4 for middle which is the reference for the array spot and checks that against the number. If the number matches the array spot we are done. If it is less than then we minus 1 from the array spot and run it again which in this case we do changing middle to 3. It this gets the 0+3/2=1 and checks again. This time the number we passed in is greater than the array spot so we change left to 1 and send right back in as 3 that it came in as boefre middle ruined it. Then we get 3+1/2=2 and this array spot will match our number. I was unable to figure this out on my own and it took me a while to even figure out what was going on here once the answer was revealed.
+
+# 17.3.4
+
+Introduced the basic concepts of Big O. O(1) is a function like the remainder that wil never increase in time regardless of size. O(log n) is a function like the binary search that will scale well with size because it divides things in half. O(n) is a function that scales poorly with size because this is just a basic for loop that walks through each step of the array one step at a time.
