@@ -162,3 +162,7 @@ The gist is that it takes 0+8/2=4 for middle which is the reference for the arra
 # 17.3.4
 
 Introduced the basic concepts of Big O. O(1) is a function like the remainder that wil never increase in time regardless of size. O(log n) is a function like the binary search that will scale well with size because it divides things in half. O(n) is a function that scales poorly with size because this is just a basic for loop that walks through each step of the array one step at a time.
+
+# 17.3.5
+
+Ran our first benchmark tests. We were able to see how a binary function can be more effecient when referncing the end of an array. It didn't really increase in time when the array grew while linear functions doubled. A linear fnction did win however if it wanted something from the front of the array. The one major limitation of binary functions is that in these examples the data would have to be sorted in numerical order or it would not work while a linear function would just keep checking untill there was a match regardless of order.

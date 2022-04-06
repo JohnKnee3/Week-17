@@ -1,0 +1,23 @@
+{
+  "name": "week-17",
+  "version": "1.0.0",
+  "description": "",
+  "main": "test.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JohnKnee3/Week-17.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JohnKnee3/Week-17/issues"
+  },
+  "homepage": "https://github.com/JohnKnee3/Week-17#readme",
+  "dependencies": {
+    "benchmark": "^2.1.4"
+  }
+}
