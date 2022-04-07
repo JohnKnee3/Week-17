@@ -41,10 +41,6 @@ const quickSort = (arr) => {
       right.push(arr[i]);
     }
   }
-  console.log("array", arr);
-  //   console.log("pivot", pivot);
-  //   console.log("left Array", left);
-  //   console.log("right Array", right);
 
   // merge the sorted arrays and pivot together
   return quickSort(left).concat(pivot, quickSort(right));

@@ -1,5 +1,5 @@
 const Benchmark = require("benchmark");
-const { bubbleSort } = require("./sort");
+const { bubbleSort, quickSort } = require("./sort");
 
 const numbers = [];
 for (let i = 0; i < 40000; i++) {
@@ -9,15 +9,18 @@ for (let i = 0; i < 40000; i++) {
 const suite = new Benchmark.Suite();
 
 suite
-  .add("bubble sort", function () {
-    const testArray = [...numbers];
-
-    bubbleSort(testArray);
-  })
   .add("quick sort", function () {
     const testArray = [...numbers];
 
     quickSort(testArray);
+  })
+  .add("js sort", function () {
+    const testArray = [...numbers];
+
+    // benchmark the built-in sort method
+    testArray.sort((a, b) => {
+      return a - b;
+    });
   })
   .on("complete", function () {
     this.forEach((result) =>
