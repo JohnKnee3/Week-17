@@ -228,3 +228,7 @@ return quickSort(left).concat(pivot, quickSort(right));
 module.exports = { bubbleSort, quickSort };
 
 Quick sort is a bit more confusing seeing as how the final swap are lost on me. But quick sort scales way better and is way faster than bubble sort.
+
+# 17.5.2
+
+Had us pseudocdoe 2 different ways to perform the Fibonacci sequence.
