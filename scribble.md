@@ -232,3 +232,7 @@ Quick sort is a bit more confusing seeing as how the final swap are lost on me. 
 # 17.5.2
 
 Had us pseudocdoe 2 different ways to perform the Fibonacci sequence.
+
+# 17.5.3 & 17.5.4
+
+Got the code for the duplicate array working then refactored it to make it more effecient.

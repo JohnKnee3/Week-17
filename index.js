@@ -1,5 +1,5 @@
 const Benchmark = require("benchmark");
-const { bubbleSort, quickSort } = require("./sort");
+const { mostDuplicates, optimizedDuplicates } = require("./dupes");
 
 const numbers = [];
 for (let i = 0; i < 40000; i++) {
@@ -9,18 +9,11 @@ for (let i = 0; i < 40000; i++) {
 const suite = new Benchmark.Suite();
 
 suite
-  .add("quick sort", function () {
-    const testArray = [...numbers];
-
-    quickSort(testArray);
+  .add("duplicates test", function () {
+    mostDuplicates(numbers);
   })
-  .add("js sort", function () {
-    const testArray = [...numbers];
-
-    // benchmark the built-in sort method
-    testArray.sort((a, b) => {
-      return a - b;
-    });
+  .add("optimized test", function () {
+    optimizedDuplicates(numbers);
   })
   .on("complete", function () {
     this.forEach((result) =>
